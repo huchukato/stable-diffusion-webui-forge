@@ -31,12 +31,6 @@ Stable Diffusion WebUI UX Forge is build on top of [Stable Diffusion WebUI Forge
 - **Prompt-All-In-One Extension**
 - **Aspect-Ratio-Helper Extension**
 
-## Installation
-- **Open the Extensions tab in SD-webui.**
-- **Select the Install from URL option.**
-- **Enter `https://github.com/anapnoe/sd-webui-ux.git`**
-- **Click on the Install button.**
-- **Wait for the installation to complete and click on Apply and restart UI.**
   
 ## Todo
 - Separate and organize CSS into individual files (in progress).
