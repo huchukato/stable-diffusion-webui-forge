@@ -8,9 +8,10 @@ function set_theme(theme) {
 }
 
 function all_gallery_buttons() {
+    console.log("all_gallery_buttons");
     var allGalleryButtons = gradioApp().querySelectorAll('[style="display: block;"].tabitem div[id$=_gallery].gradio-gallery .thumbnails > .thumbnail-item.thumbnail-small');
     var visibleGalleryButtons = [];
-    allGalleryButtons.forEach(function(elem) {
+    allGalleryButtons.forEach(function (elem) {
         if (elem.parentElement.offsetParent) {
             visibleGalleryButtons.push(elem);
         }
@@ -157,7 +158,7 @@ function submit() {
     var id = randomId();
     localSet("txt2img_task_id", id);
 
-    requestProgress(id, gradioApp().getElementById('txt2img_gallery_container'), gradioApp().getElementById('txt2img_gallery'), function() {
+    requestProgress(id, gradioApp().getElementById('txt2img_gallery_container'), gradioApp().getElementById('txt2img_gallery'), function () {
         showSubmitButtons('txt2img', true);
         localRemove("txt2img_task_id");
         showRestoreProgressButton('txt2img', false);
@@ -184,7 +185,7 @@ function submit_img2img() {
     var id = randomId();
     localSet("img2img_task_id", id);
 
-    requestProgress(id, gradioApp().getElementById('img2img_gallery_container'), gradioApp().getElementById('img2img_gallery'), function() {
+    requestProgress(id, gradioApp().getElementById('img2img_gallery_container'), gradioApp().getElementById('img2img_gallery'), function () {
         showSubmitButtons('img2img', true);
         localRemove("img2img_task_id");
         showRestoreProgressButton('img2img', false);
@@ -202,7 +203,7 @@ function submit_extras() {
 
     var id = randomId();
 
-    requestProgress(id, gradioApp().getElementById('extras_gallery_container'), gradioApp().getElementById('extras_gallery'), function() {
+    requestProgress(id, gradioApp().getElementById('extras_gallery_container'), gradioApp().getElementById('extras_gallery'), function () {
         showSubmitButtons('extras', true);
     });
 
@@ -219,7 +220,7 @@ function restoreProgressTxt2img() {
 
     if (id) {
         showSubmitInterruptingPlaceholder('txt2img');
-        requestProgress(id, gradioApp().getElementById('txt2img_gallery_container'), gradioApp().getElementById('txt2img_gallery'), function() {
+        requestProgress(id, gradioApp().getElementById('txt2img_gallery_container'), gradioApp().getElementById('txt2img_gallery'), function () {
             showSubmitButtons('txt2img', true);
         }, null, 0);
     }
@@ -234,7 +235,7 @@ function restoreProgressImg2img() {
 
     if (id) {
         showSubmitInterruptingPlaceholder('img2img');
-        requestProgress(id, gradioApp().getElementById('img2img_gallery_container'), gradioApp().getElementById('img2img_gallery'), function() {
+        requestProgress(id, gradioApp().getElementById('img2img_gallery_container'), gradioApp().getElementById('img2img_gallery'), function () {
             showSubmitButtons('img2img', true);
         }, null, 0);
     }
@@ -251,7 +252,7 @@ function setupResolutionPasting(tabname) {
     var width = gradioApp().querySelector(`#${tabname}_width input[type=number]`);
     var height = gradioApp().querySelector(`#${tabname}_height input[type=number]`);
     for (const el of [width, height]) {
-        el.addEventListener('paste', function(event) {
+        el.addEventListener('paste', function (event) {
             var pasteData = event.clipboardData.getData('text/plain');
             var parsed = pasteData.match(/^\s*(\d+)\D+(\d+)\s*$/);
             if (parsed) {
@@ -265,7 +266,7 @@ function setupResolutionPasting(tabname) {
     }
 }
 
-onUiLoaded(function() {
+onUiLoaded(function () {
     showRestoreProgressButton('txt2img', localGet("txt2img_task_id"));
     showRestoreProgressButton('img2img', localGet("img2img_task_id"));
     setupResolutionPasting('txt2img');
@@ -275,7 +276,7 @@ onUiLoaded(function() {
 
 function modelmerger() {
     var id = randomId();
-    requestProgress(id, gradioApp().getElementById('modelmerger_results_panel'), null, function() {});
+    requestProgress(id, gradioApp().getElementById('modelmerger_results_panel'), null, function () { });
 
     var res = create_submit_args(arguments);
     res[0] = id;
@@ -299,7 +300,7 @@ function confirm_clear_prompt(prompt, negative_prompt) {
 
 
 var opts = {};
-onAfterUiUpdate(function() {
+onAfterUiUpdate(function () {
     if (Object.keys(opts).length != 0) return;
 
     var json_elem = gradioApp().getElementById('settings_json');
@@ -313,7 +314,7 @@ onAfterUiUpdate(function() {
     executeCallbacks(optionsChangedCallbacks); /*global optionsChangedCallbacks*/
 
     Object.defineProperty(textarea, 'value', {
-        set: function(newValue) {
+        set: function (newValue) {
             var valueProp = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value');
             var oldValue = valueProp.get.call(textarea);
             valueProp.set.call(textarea, newValue);
@@ -324,7 +325,7 @@ onAfterUiUpdate(function() {
 
             executeCallbacks(optionsChangedCallbacks);
         },
-        get: function() {
+        get: function () {
             var valueProp = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value');
             return valueProp.get.call(textarea);
         }
@@ -333,7 +334,7 @@ onAfterUiUpdate(function() {
     json_elem.parentElement.style.display = "none";
 });
 
-onOptionsChanged(function() {
+onOptionsChanged(function () {
     var elem = gradioApp().getElementById('sd_checkpoint_hash');
     var sd_checkpoint_hash = opts.sd_checkpoint_hash || "";
     var shorthash = sd_checkpoint_hash.substring(0, 10);
@@ -350,10 +351,10 @@ let txt2img_textarea, img2img_textarea = undefined;
 function restart_reload() {
     document.body.style.backgroundColor = "var(--background-fill-primary)";
     document.body.innerHTML = '<h1 style="font-family:monospace;margin-top:20%;color:lightgray;text-align:center;">Reloading...</h1>';
-    var requestPing = function() {
-        requestGet("./internal/ping", {}, function(data) {
+    var requestPing = function () {
+        requestGet("./internal/ping", {}, function (data) {
             location.reload();
-        }, function() {
+        }, function () {
             setTimeout(requestPing, 500);
         });
     };
@@ -366,8 +367,8 @@ function restart_reload() {
 // Simulate an `input` DOM event for Gradio Textbox component. Needed after you edit its contents in javascript, otherwise your edits
 // will only visible on web page and not sent to python.
 function updateInput(target) {
-    let e = new Event("input", {bubbles: true});
-    Object.defineProperty(e, "target", {value: target});
+    let e = new Event("input", { bubbles: true });
+    Object.defineProperty(e, "target", { value: target });
     target.dispatchEvent(e);
 }
 
@@ -391,7 +392,7 @@ function updateImg2imgResizeToTextAfterChangingImage() {
     // At the time this is called from gradio, the image has no yet been replaced.
     // There may be a better solution, but this is simple and straightforward so I'm going with it.
 
-    setTimeout(function() {
+    setTimeout(function () {
         gradioApp().getElementById('img2img_update_resize_to').click();
     }, 500);
 
@@ -429,7 +430,7 @@ var onEditTimers = {};
 
 // calls func after afterMs milliseconds has passed since the input elem has been edited by user
 function onEdit(editId, elem, afterMs, func) {
-    var edited = function() {
+    var edited = function () {
         var existingTimer = onEditTimers[editId];
         if (existingTimer) clearTimeout(existingTimer);
 

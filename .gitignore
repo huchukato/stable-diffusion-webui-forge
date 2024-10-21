@@ -55,3 +55,4 @@ trace.json
 /test/results.xml
 coverage.xml
 **/tests/**/expectations
+/extensions-builtin/sd-webui-ux/.git

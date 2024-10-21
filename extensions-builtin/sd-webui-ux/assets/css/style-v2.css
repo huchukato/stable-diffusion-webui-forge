@@ -1,0 +1,429 @@
+:root {
+
+    --ae-gradient-outset:
+        linear-gradient(var(--ae-input-outset-angle), var(--ae-input-outset-highlight-color) 0%, var(--ae-input-outset-shadow-color) 100%);
+
+    --ae-gradient-outset-active:
+        linear-gradient(var(--ae-input-active-outset-angle), var(--ae-input-active-outset-highlight-color) 0%, var(--ae-input-active-outset-shadow-color) 100%);
+
+    --ae-gradient-outset-hover:
+        linear-gradient(var(--ae-input-active-outset-angle), var(--ae-input-active-outset-highlight-color) 0%, var(--ae-input-active-outset-shadow-color) 200%);
+
+    --ae-gradient-inset:
+        linear-gradient(var(--ae-input-inset-angle), var(--ae-input-inset-highlight-color) 0%, var(--ae-input-inset-shadow-color) 100%);
+
+    --ae-outset-bevel: var(--ae-input-outset-bevel);
+    --ae-neg-outset-bevel: calc(var(--ae-outset-bevel)*-1);
+    --ae-outset-blur: var(--ae-input-outset-blur);
+    --ae-outset-offset: calc(var(--ae-input-outset-offset) * -1);
+
+    --ae-outset-neo-bevel: 1px;
+    --ae-neg-outset-neo-bevel: calc(var(--ae-outset-neo-bevel)*-1);
+    --ae-outset-neo-blur: 2px;
+    --ae-outset-neo-offset: 1px;
+
+    --ae-outset-shadow:
+        /*
+        var(--ae-neg-outset-neo-bevel) 0px var(--ae-outset-neo-blur) var(--ae-outset-neo-offset) rgba(0, 0, 0, 0.75), 
+        0px var(--ae-neg-outset-neo-bevel) var(--ae-outset-neo-blur) var(--ae-outset-neo-offset) rgba(0, 0, 0, 0.75),
+        var(--ae-outset-neo-bevel) 0px var(--ae-outset-neo-blur) var(--ae-outset-neo-offset) rgba(255, 255, 255, 0.25), 
+        0px var(--ae-outset-neo-bevel) var(--ae-outset-neo-blur) var(--ae-outset-neo-offset) rgba(255, 255, 255, 0.25),
+        */
+        inset var(--ae-neg-outset-bevel) 0px var(--ae-outset-blur) var(--ae-outset-offset) rgba(0, 0, 0, 0.5),
+        inset 0px var(--ae-neg-outset-bevel) var(--ae-outset-blur) var(--ae-outset-offset) rgba(0, 0, 0, 0.5),
+        inset var(--ae-outset-bevel) 0px var(--ae-outset-blur) var(--ae-outset-offset) rgba(255, 255, 255, 0.5),
+        inset 0px var(--ae-outset-bevel) var(--ae-outset-blur) var(--ae-outset-offset) rgba(255, 255, 255, 0.5);
+
+    --ae-outset-active-bevel: var(--ae-input-active-outset-bevel);
+    --ae-neg-outset-active-bevel: calc(var(--ae-outset-active-bevel)*-1);
+    --ae-outset-active-blur: var(--ae-input-active-outset-blur);
+    --ae-outset-active-offset: calc(var(--ae-input-active-outset-offset) * -1);
+    --ae-outset-active-shadow:
+        inset var(--ae-neg-outset-active-bevel) 0px var(--ae-outset-active-blur) var(--ae-outset-active-offset) rgba(255, 255, 255, 0.5),
+        inset 0px var(--ae-neg-outset-active-bevel) var(--ae-outset-active-blur) var(--ae-outset-active-offset) rgba(255, 255, 255, 0.5),
+        inset var(--ae-outset-active-bevel) 0px var(--ae-outset-active-blur) var(--ae-outset-active-offset) rgba(0, 0, 0, 0.5),
+        inset 0px var(--ae-outset-active-bevel) var(--ae-outset-active-blur) var(--ae-outset-active-offset) rgba(0, 0, 0, 0.5);
+
+    --ae-outset-hover-shadow: var(--ae-outset-shadow);
+
+    --ae-inset-bevel: var(--ae-input-inset-bevel);
+    --ae-neg-inset-bevel: calc(var(--ae-inset-bevel)*-1);
+    --ae-inset-blur: var(--ae-input-inset-blur);
+    --ae-inset-offset: calc(var(--ae-input-inset-offset) * -1);
+
+    --ae-inset-shadow:
+        inset 1px 0px 1px 0px rgba(0, 0, 0, 0.25),
+        inset 0px 1px 1px 0px rgba(0, 0, 0, 0.25),
+        inset -1px 0px 0px 0px rgba(255, 255, 255, 0.25),
+        inset 0px -1px 0px 0px rgba(255, 255, 255, 0.25),
+        inset var(--ae-inset-bevel) 0px var(--ae-inset-blur) var(--ae-inset-offset) rgba(0, 0, 0, 0.5),
+        inset 0px var(--ae-inset-bevel) var(--ae-inset-blur) var(--ae-inset-offset) rgba(0, 0, 0, 0.5),
+        inset var(--ae-neg-inset-bevel) 0px var(--ae-inset-blur) var(--ae-inset-offset) rgba(255, 255, 255, 0.1),
+        inset 0px var(--ae-neg-inset-bevel) var(--ae-inset-blur) var(--ae-inset-offset) rgba(255, 255, 255, 0.1);
+
+    --ae-slider-gradient:
+        linear-gradient(var(--ae-input-slider-angle), var(--ae-input-slider-highlight-color) 0%, var(--ae-input-slider-shadow-color) 100%);
+
+    --ae-panel-gradient:
+        linear-gradient(var(--ae-panel-outset-angle), var(--ae-panel-outset-highlight-color) 0%, var(--ae-panel-outset-shadow-color) 100%);
+
+    --ae-panel-background-attachment: local;
+    --ae-panel-gradient-size: 100% 100%;
+    --ae-panel-gradient-position: center center;
+
+    --ae-panel-bevel: var(--ae-panel-outset-bevel);
+    --ae-neg-panel-bevel: calc(var(--ae-panel-bevel)*-1);
+    --ae-panel-blur: var(--ae-panel-outset-blur);
+    --ae-panel-offset: calc(var(--ae-panel-outset-offset) * -1);
+
+    --ae-panel-outset-shadow:
+        inset var(--ae-neg-panel-bevel) 0px var(--ae-panel-blur) var(--ae-panel-offset) rgba(0, 0, 0, 0.5),
+        inset 0px var(--ae-neg-panel-bevel) var(--ae-panel-blur) var(--ae-panel-offset) rgba(0, 0, 0, 0.5),
+        inset var(--ae-panel-bevel) 0px var(--ae-panel-blur) var(--ae-panel-offset) rgba(255, 255, 255, 0.5),
+        inset 0px var(--ae-panel-bevel) var(--ae-panel-blur) var(--ae-panel-offset) rgba(255, 255, 255, 0.5);
+
+}
+
+
+*.gradio-slider input[type="range"] {
+    isolation: isolate;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="range"]::-webkit-slider-thumb {
+        background-image: var(--ae-slider-gradient);
+        background-repeat: no-repeat;
+        background-origin: border-box;
+        background-clip: border-box;
+
+        /*box-shadow:var(--ae-slider-thumb);*/
+        height: calc(100% + 64px);
+        position: relative;
+        top: -32px;
+
+        width: 1px;
+        transform: translateX(-1px) scaleX(1024);
+        transform-origin: top right;
+        mix-blend-mode: screen;
+    }
+
+    input[type="range"]::after {
+        filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.25));
+        opacity: 0.25;
+    }
+}
+
+
+input[type="range"]::-moz-range-thumb {
+    background-image: var(--ae-slider-gradient);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: border-box;
+
+    /*box-shadow:var(--ae-slider-thumb);*/
+    height: calc(100% + 64px);
+    position: relative;
+    top: -32px;
+
+    width: 1px;
+    transform: translateX(-1px) scaleX(1024);
+    transform-origin: top right;
+    mix-blend-mode: screen;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background-image: none;
+    background-color: transparent;
+}
+
+input[type="range"]:focus::-moz-range-track,
+input[type="range"]::-moz-range-track {
+    background-color: transparent;
+    filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.25));
+    opacity: 0.25;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-image: var(--ae-slider-gradient);
+    mix-blend-mode: screen;
+    background-color: transparent;
+}
+
+*.gradio-accordion .label-wrap.open {
+    margin-bottom: 0;
+}
+
+*.gradio-accordion .label-wrap.open+div {
+    border-bottom-left-radius: var(--ae-border-radius);
+    border-bottom-right-radius: var(--ae-border-radius);
+}
+
+/*
+*.gradio-accordion .label-wrap.open + div,
+#main-nav,
+.template > .layout > .layout-header > div,
+.template > .layout > .layout-footer > div,
+.accordion-bar, .accordion-container,  
+*/
+button,
+.token,
+.wrap label:has(> [type=checkbox], [type=radio]),
+.invisible *.gradio-button.tool,
+*.gradio-dropdown div.wrap,
+* input:not(.border-none),
+* textarea,
+.ae-button,
+.xtabs-tab,
+*.gradio-accordion .label-wrap {
+    position: relative;
+    background-image: var(--ae-gradient-outset);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: border-box;
+    /*border-color: transparent;*/
+    /*mix-blend-mode: hard-light;*/
+    box-shadow: var(--ae-outset-shadow);
+}
+
+*.tab-nav button.selected,
+button.active,
+button.selected {
+    background-image: var(--ae-gradient-outset-active);
+    box-shadow: var(--ae-outset-active-shadow);
+    color: var(--ae-input-active-text-color, var(--ae-input-hover-text-color));
+}
+
+button.active .mask-icon {
+    background-color: var(--ae-input-active-text-color, var(--ae-input-hover-text-color));
+}
+
+button.active svg {
+    fill: var(--ae-input-active-text-color, var(--ae-input-hover-text-color));
+}
+
+button.active .icon-letters,
+button.active span {
+    color: var(--ae-input-active-text-color, var(--ae-input-hover-text-color));
+}
+
+.gradio-button:has([class*="icon-2"])::before,
+.invisible *.gradio-button.tool:hover,
+*.gradio-button:hover,
+*.tab-nav button:hover,
+button:hover {
+    background-image: var(--ae-gradient-outset-hover);
+    box-shadow: var(--ae-outset-hover-shadow);
+    color: var(--ae-input-hover-text-color);
+    background-color: var(--ae-input-hover-text-color, var(--ae-primary-color));
+}
+
+.gradio-button:has([class*="icon-2"])::after,
+.invisible *.gradio-button.tool:hover .mask-icon,
+button:hover .mask-icon {
+    background-color: var(--ae-input-hover-text-color, var(--ae-primary-color));
+}
+
+button:hover .icon-letters,
+button:hover span {
+    color: var(--ae-input-hover-text-color);
+    ;
+}
+
+button:hover svg {
+    fill: var(--ae-input-hover-text-color);
+}
+
+
+
+.ae-button>.invisible>button {
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+/**:not(.no-border) > .portal:has(>.block.gradio-html)*/
+*.gradio-dropdown div.wrap,
+* input:not(.border-none),
+* textarea {
+    background-image: var(--ae-gradient-inset);
+    /*border-color: transparent;*/
+    box-shadow: var(--ae-inset-shadow);
+    color: var(--ae-input-inset-text-color);
+}
+
+@font-face {
+    font-family: "E1234";
+    src: url("./../fonts/E1234.ttf");
+}
+
+@font-face {
+    font-family: "DISPLAY_TFB";
+    src: url("./../fonts/DISPLAY\ FREE\ TFB.ttf");
+}
+
+@font-face {
+    font-family: '7 digit';
+    src: url('./../fonts/7-digit.woff2') format('woff2'),
+        url('./../fonts/7-digit.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: "IBM Plex Mono", monospace;
+}
+
+input[type=Number] {
+    font-family: "7 digit" !important;
+    font-size: 10px;
+}
+
+input[type=Number],
+.gradio-dropdown .secondary-wrap input {
+    color: var(--ae-input-inset-text-color, var(--ae-input-text-color));
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    padding-left: max(8px, var(--ae-input-padding)) !important;
+}
+
+* svg.dropdown-arrow {
+    fill: var(--ae-input-inset-text-color, var(--ae-input-text-color));
+}
+
+
+*.gradio-checkboxgroup>span,
+*.gradio-radio>span,
+label {
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+}
+
+div#main_nav_content {
+    overflow: visible;
+}
+
+*.gradio-accordion .label-wrap.open+div,
+#main-nav,
+.template>.layout>.layout-header>div,
+.template>.layout>.layout-footer>div,
+.accordion-bar,
+.accordion-container,
+
+.flexbox.no-border:not(.no-bg),
+:not(.portal)>.gradio-highlightedtext,
+:not(.portal)>.gradio-row:not(.compact),
+:not(.portal)>.block.gradio-slider,
+:not(.portal)>.block.gradio-dropdown,
+:not(.portal)>.block.gradio-radio,
+:not(.portal)>.block.gradio-checkbox,
+:not(.portal)>.block.gradio-checkboxgroup,
+:not(.portal)>.block.gradio-textbox,
+*:not(.no-border, .xtabs-item)>.portal:not(.no-bg, .invisible),
+.panel {
+
+    background: var(--ae-panel-gradient, var(--ae-panel-bg-color));
+    background-origin: border-box;
+    background-clip: border-box;
+    background-size: var(--ae-panel-gradient-size);
+    background-position: var(--ae-panel-gradient-position);
+    background-attachment: var(--ae-panel-background-attachment);
+
+
+    /*background: var(--ae-panel-gradient), url(./html/images/noise.svg);*/
+    box-shadow: var(--ae-panel-outset-shadow);
+    /*
+    background: 
+    linear-gradient(63deg, var(--ae-panel-outset-highlight-color) 23%, transparent 23%) 7px 0, 
+    linear-gradient(63deg, transparent 74%, var(--ae-panel-outset-highlight-color) 78%), 
+    linear-gradient(63deg, transparent 34%, var(--ae-panel-outset-highlight-color) 38%, var(--ae-panel-outset-highlight-color) 58%, transparent 62%), 
+    var(--ae-panel-outset-shadow-color);
+    background-size: 2px 2px;
+    */
+
+}
+
+
+[id$="edit_user_metadata"] .extra-network-name~.form .gradio-dropdown,
+[id$="edit_user_metadata"] .extra-network-name+.form .gradio-textbox,
+:not(.portal)>.gradio-row>.gradio-row>.gradio-column>.block,
+:not(.portal)>.gradio-row>.form>.block,
+:not(.portal)>.gradio-row .form {
+    box-shadow: none;
+    background: transparent;
+}
+
+.prose p,
+.gradio-checkbox label>span {
+    margin-bottom: 0 !important;
+}
+
+
+#anapnoe_app:not(.default-mobile) .group-row>*:has(+button.mobile) {
+    border-top-right-radius: var(--ae-border-radius) !important;
+    border-bottom-right-radius: var(--ae-border-radius) !important;
+}
+
+.tabs_extensions tr:has(input:not([checked="checked"])) {
+    opacity: 0.5;
+}
+
+/*
+.xtabs-tab:before, .ae-button:before, *.gradio-dropdown div.wrap:before {
+    border-radius: calc(var(--ae-border-radius) - var(--ae-input-border-size));
+}
+.group-row > *:before {
+    border-radius: 0;
+}
+.group-row > *:first-child button:before, .group-row > *:first-child:before {
+    border-top-left-radius: calc(var(--ae-border-radius) - var(--ae-input-border-size));
+    border-bottom-left-radius: calc(var(--ae-border-radius) - var(--ae-input-border-size));
+}
+.group-row > *:last-child button:before, .group-row > *:last-child:before {
+    border-top-right-radius: calc(var(--ae-border-radius) - var(--ae-input-border-size));
+    border-bottom-right-radius: calc(var(--ae-border-radius) - var(--ae-input-border-size));
+}
+
+* input:not(.border-none), * textarea {
+    border-color: transparent;
+    outline: var(--ae-input-border-size) solid var(--ae-input-border-color);
+}
+
+* input:not(.border-none):before, * textarea:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    margin: 0;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), inset -2px -2px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+    inset 1px 1px 1px 0px rgba(255, 255, 255, 0.5), 
+    inset -1px -1px 1px 0px rgba(0, 0, 0, 0.5), 
+    inset 0px 0px 2px 0px rgba(0, 0, 0, 0.5), 
+    inset 0px 0px 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+*.gradio-dropdown div.wrap, * input:not(.border-none), * textarea {
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4), inset -2px -2px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.5), inset 0px 0px 8px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+input:not([type="checkbox"], [type="radio"]), * textarea {
+    width: calc(100% - var(--ae-input-border-size) * 1);
+    min-height: calc(var(--ae-input-height) - var(--ae-input-border-size)* 1);
+    line-height: calc(var(--ae-input-line-height) - var(--ae-input-border-size)* 1 );
+     
+}
+
+input[type="range"]:before {
+    box-shadow: none; 
+}
+
+*.gradio-accordion .label-wrap,
+.gradio-accordion:has(> .open) {
+    outline: var(--ae-input-border-size) solid var(--ae-input-border-color);
+}
+
+*/
