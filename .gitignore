@@ -55,3 +55,4 @@ trace.json
 /test/results.xml
 coverage.xml
 **/tests/**/expectations
+/models/text_encoder/text_encoder_2_config.json
