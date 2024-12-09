@@ -56,3 +56,4 @@ trace.json
 coverage.xml
 **/tests/**/expectations
 /extensions-builtin/sd-webui-ux/.git
+sd-hub-token.json

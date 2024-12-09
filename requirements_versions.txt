@@ -21,6 +21,7 @@ piexif==1.1.3
 protobuf
 mediapipe
 onnx
+grpcio-status
 psutil==5.9.5
 pytorch_lightning==1.9.4
 resize-right==0.0.2
